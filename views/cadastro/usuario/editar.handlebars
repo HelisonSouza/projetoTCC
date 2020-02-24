@@ -1,0 +1,109 @@
+{{#each erros}}
+    <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+<!-- Main content -->
+    <section class="content container-fluid">
+
+      <div class="row">
+        <div class="col-md-8">
+
+          {{>_listar}}
+
+        </div>
+        <div class="col-md-4">
+
+          <div class="row">
+          
+            <!-- ./col -->
+            <div class="col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                  <h3 id="number-users">0</h3>
+          
+                  <p>Usuários</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                  <h3 id="number-users-admin">0</h3>
+          
+                  <p>Administradores</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+              </div>
+            </div>
+            <!-- ./col -->
+          </div>
+
+          <!-- INÍCIO DA ESTRUTURA DO FORMULÁRIO DE EDIÇÃO -->
+          <div class="card border-primary" id="box-user-update">
+            <div class="card-header">
+              <h3 class="box-title">Editar Usuário</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- FORMULÁRIO DE EDIÇÃO -->
+            <form method="POST" action="../editar" role="form" id="form-user-update">
+            <input type="hidden" name="id" value="{{usuario._id}}">
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="exampleInputName">Nome</label>
+                  <input type="text" required class="form-control" id="nome" placeholder="Digite o nome do usuário" name="nome" value="{{usuario.nome}}">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">E-mail</label>
+                  <input type="email" required class="form-control" id="email" placeholder="Digite o e-mail" name="email" value="{{usuario.email}}">
+                </div>
+                <div class="form-group">
+                  <img src="dist/img/boxed-bg.jpg" class="photo" style="max-height: 128px;">
+                  <label for="exampleInputFile">Foto</label>
+                  <input type="file" id="foto" name="foto" value="{{usuario.foto}}">
+                </div>
+                <div class="form-group">
+                  <label for="cargo">Cargo</label>
+                  <select class="form-control" id="cargo" name="cargo">
+                    <option value="" selected="selected">{{usuario.cargo}}</option>
+                    <option value="Supervisor">Supervisor</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="setor">Setor</label>
+                  <select class="form-control" id="setor" name="setor">
+                    <option value="" selected="selected">{{usuario.setor}}</option>
+                    <option value="Abate">Abate</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="grupo">Grupo de Acesso</label>
+                  <select class="form-control" id="grupoAcesso" name="grupoAcesso">
+                    <option value="" selected="selected">{{usuario.grupoAcesso}}</option>
+                    <option value="Administrador">Adminstrador</option>
+                    <option value="Administrador">Usuário</option>
+                  </select>
+                </div>
+              </div>
+              <!-- /.box-body -->    
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary md-3">Salvar</button>
+                <a href="../adicionar">
+                    <button type="button" class="btn btn btn-secondar btn-cancel">Cancelar</button>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+

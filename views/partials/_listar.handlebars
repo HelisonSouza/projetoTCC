@@ -1,0 +1,52 @@
+<div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Lista de Usuários:</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="card-body">
+              <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th style="width: 10px">Foto</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Cargo</th>
+                    <th>Setor</th>
+                    <th>Grupo</th>
+                    <th>Registro</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="table-users">
+                  {{#each usuarios}}
+                    <tr class="table table-sm">
+                        <td>{{foto}}</td>
+                        <td>{{nome}}</td>
+                        <td>{{email}}</td>
+                        <td>{{cargo}}</td>
+                        <td>{{setor}}</td>
+                        <td>{{grupoAcesso}}</td>
+                        <td>{{registro}}</td>
+                        <td>
+                            <a href="../usuario/editar/{{_id}}">
+                                <button type="button" class="btn btn-primary   mt-2 btn-flat btn-edit">
+                                  <i class="far fa-edit"></i>
+                                </button>
+                            </a>
+                            <form action="/usuario/desativar" method="POST">
+                                <input type="hidden" name="id" value="{{_id}}">
+                                <button type="submit" class="btn btn-danger mt-2 btn-flat btn-desativar">
+                                <i class="far fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                  {{else}}
+
+                  {{/each}}
+
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
